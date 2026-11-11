@@ -12,11 +12,13 @@
 <body>
   <div class="container">
 
+    <!-- 导航栏 -->
     <nav class="navbar">
-      <a href="#home" class="logo" id="logo"></a>
+      <a href="index.html" class="logo" id="logo"></a>
       <ul class="nav-links" id="navLinks"></ul>
     </nav>
 
+    <!-- 首屏 Hero -->
     <section class="hero" id="home">
       <div class="hero-content">
         <h1 id="heroTitle"></h1>
@@ -25,7 +27,11 @@
       </div>
     </section>
 
+    <!-- 注意：原来的“关于”板块已经从首页删除，移到了独立的 about.html -->
+
+    <!-- 故事书 + 植萃（双列展示） -->
     <div class="brand-grid">
+      <!-- 故事书 -->
       <div class="brand-card" id="storybook">
         <h3 id="storybookTitle"></h3>
         <div class="brand-sub" id="storybookSubtitle"></div>
@@ -37,6 +43,7 @@
         </div>
       </div>
 
+      <!-- 植萃 Flora Flow -->
       <div class="brand-card" id="flora">
         <h3 id="floraTitle"></h3>
         <div class="brand-sub" id="floraSubtitle"></div>
@@ -48,6 +55,7 @@
       </div>
     </div>
 
+    <!-- Lofi 音乐 -->
     <section id="music">
       <div class="card music-card">
         <h3 id="musicTitle" style="font-size:1.9rem;font-weight:500;margin-bottom:8px;"></h3>
@@ -58,6 +66,7 @@
       </div>
     </section>
 
+    <!-- AI 实验室 -->
     <section id="ai-lab">
       <h2 id="aiTitle"></h2>
       <div class="section-subhead" id="aiSubtitle"></div>
@@ -66,17 +75,20 @@
       </div>
     </section>
 
+    <!-- 博客（会自动从后台拉取文章） -->
     <section id="blog">
       <h2 id="blogTitle"></h2>
       <div class="section-subhead" id="blogSubtitle"></div>
       <div class="blog-list" id="blogList"></div>
     </section>
 
+    <!-- 常见问题 FAQ -->
     <section id="faq">
       <h2 id="faqTitle"></h2>
       <div class="faq-list" id="faqList"></div>
     </section>
 
+    <!-- 页脚 -->
     <footer id="contact">
       <div class="footer-motto" id="footerMotto"></div>
       <div class="footer-links" id="footerLinks"></div>
@@ -84,6 +96,7 @@
     </footer>
   </div>
 
+  <!-- 引入配置文件、渲染脚本和后台跳转 -->
   <script src="content.js"></script>
   <script src="render.js"></script>
 </body>

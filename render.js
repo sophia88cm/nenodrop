@@ -4,17 +4,16 @@
   const setText = (id, txt) => { const el = $(id); if (el) el.textContent = txt; };
   const setHTML = (id, html) => { const el = $(id); if (el) el.innerHTML = html; };
 
-  // 渲染基础信息
+  // --- 基础内容渲染（保留原有功能） ---
   const logoEl = $("logo");
   if (logoEl) logoEl.innerHTML = C.logo.replace(C.logoHighlight, `<span>${C.logoHighlight}</span>`);
   const navLinks = $("navLinks");
   if (navLinks) navLinks.innerHTML = C.nav.map(n => `<li><a href="${n.href}">${n.text}</a></li>`).join("");
-  
   setText("heroTitle", C.hero.title);
   setText("heroSubtitle", C.hero.subtitle);
   const heroBtns = $("heroButtons");
   if (heroBtns) heroBtns.innerHTML = C.hero.buttons.map(b => `<a href="${b.href}" class="btn ${b.style || ''}">${b.text}</a>`).join("");
-
+  
   setText("storybookTitle", C.storybook.title);
   setText("storybookSubtitle", C.storybook.subtitle);
   setText("storybookDesc", C.storybook.description);
@@ -44,7 +43,7 @@
   if (aiList) aiList.innerHTML = C.aiLab.items.map(i => `<li>${i}</li>`).join("");
 
   // ==========================================
-  // 核心升级：自动从 GitHub 读取 CMS 写的文章，并支持点击阅读
+  // 核心：抓取后台文章并生成可点击的卡片
   // ==========================================
   setText("blogTitle", C.blog.title);
   setText("blogSubtitle", C.blog.subtitle);
@@ -75,7 +74,7 @@
                 if(line.startsWith('link:')) link = line.replace('link:', '').trim().replace(/['"]/g, '');
               });
 
-              // 如果后台填了外链，就跳外链；如果没填，就跳转到我们接下来要建的文章详情页
+              // 如果后台填了外链，就跳外链；没填外链，就跳本地生成的阅读页 article.html
               const finalLink = link ? link : `article.html?slug=${slug}`;
               
               const cardContent = `
@@ -95,7 +94,7 @@
       });
   }
 
-  // 渲染 FAQ 和 页脚
+  // --- FAQ 与页脚渲染 ---
   setText("faqTitle", C.faq.title);
   const faqList = $("faqList");
   if (faqList) {

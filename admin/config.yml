@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: sophia88cm/nenodrop 
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "博客文章"
+    folder: "posts"
+    create: true
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "摘要", name: "excerpt", widget: "text"}
+      - {label: "外链网址 (可选)", name: "link", widget: "string", required: false}
+      - {label: "正文", name: "body", widget: "markdown"}
